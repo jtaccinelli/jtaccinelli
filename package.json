@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "wrangler deploy",
+    "typegen": "wrangler types ./src/wrangler.d.ts",
     "astro": "astro"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "alpinejs": "^3.14.9",
     "astro": "^5.9.2",
     "astro-icon": "^1.1.5",
+    "mimetext": "^3.0.27",
     "tailwindcss": "^4.1.8"
   },
   "packageManager": "pnpm@10.11.1",
