@@ -21,7 +21,7 @@ export const server = {
       `;
 
       const sender = "contact@email.jtaccinelli.com.au";
-      const recipient = "info@jtaccinelli.com.au";
+      const recipient = "contact@email.jtaccinelli.com.au";
       const email = createMimeMessage();
 
       email.setRecipient(recipient);
