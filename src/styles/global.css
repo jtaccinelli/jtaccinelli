@@ -9,26 +9,24 @@
   font-style: normal;
 }
 
-@keyframes reveal {
-  0%,
-  100% {
-    opacity: 0%;
-  }
-  10%,
-  90% {
-    opacity: 100%;
-  }
-}
-
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @theme {
   --font-sans: "PT Root UI", system-ui, sans-serif;
 
   --animate-reveal: reveal 3s ease forwards;
-  --animate-spin-slow: spin-slow 10s linear infinte;
+  --animate-spin-slow: spin 12s linear infinite;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 100;
+    }
+    90% {
+      opacity: 100;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }

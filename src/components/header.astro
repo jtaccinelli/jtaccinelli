@@ -8,44 +8,11 @@ type Props = {
 };
 
 const { id, text } = Astro.props;
-
-const linkId = `#${id}`;
 ---
 
-<a href={linkId} class="sticky top-0 z-10 flex justify-between border-b-2 border-neutral-800 bg-neutral-900 p-8">
+<a href={`#${id}`} class="sticky top-0 z-10 flex justify-between border-b-2 border-neutral-800 bg-neutral-900 p-8">
   <h3 id={id} class="font-bold">{text}</h3>
-  <copy-link data-id={id} data-text={text}>
-    <IconButton label={`Copy ${text} Link`} data="copy-link(``)">
-      <Icon name="link-alt" class="h-6 w-6 text-white" />
-    </IconButton>
-  </copy-link>
+  <IconButton label={`Copy ${text} Link`} x-data="copier" data-id={id} data-text={text}>
+    <Icon name="link-alt" class="h-6 w-6 text-white" />
+  </IconButton>
 </a>
-
-<script>
-  class CopyLink extends HTMLElement {
-    constructor() {
-      super();
-
-      const id = this.dataset.id;
-      const text = this.dataset.text;
-
-      const hostname = window.location.hostname;
-
-      function handleClick() {
-        const updateToastEvent = new CustomEvent<{ message: string }>("toast:update", {
-          detail: {
-            message: `Copied ${text} link!`,
-          },
-        });
-
-        window?.dispatchEvent(updateToastEvent);
-        navigator.clipboard.writeText(`${hostname}/#${id}`);
-      }
-
-      const button = this.querySelector("button");
-      button?.addEventListener("click", handleClick);
-    }
-  }
-
-  customElements.define("copy-link", CopyLink);
-</script>

@@ -1,31 +1,57 @@
 import type { Alpine } from "alpinejs";
 
-const greetings = ["Ciao!", "Hello!", "Kia Ora!"];
-
 export default function (Alpine: Alpine) {
-  Alpine.data("greeting", () => ({
-    value: greetings[Math.floor(Math.random() * greetings.length)],
-  }));
+  // Store for powering the toast
+  Alpine.store("message", "");
 
-  Alpine.data("toast", () => ({
-    message: "",
-    show: false,
-    init() {
-      Alpine.bind(this.$root, this.root);
-    },
-    root: {
-      ["@update:toast.window"](event: CustomEvent) {
-        if (event.detail.message) {
-          this.message = event.detail.message;
-        }
-        if (event.detail.toast) {
-          if (this.$root.classList.contains("animate-reveal")) {
-            this.$root.classList.remove("animate-reveal");
-            void this.$root.offsetWidth;
-          }
-          this.$root.classList.add("animate-reveal");
-        }
+  // Data model for randomly generating a greeting
+  Alpine.data("greeting", () => {
+    return {
+      values: ["Ciao!", "Hello!", "Kia Ora!"],
+      get value() {
+        const randomIndex = Math.floor(Math.random() * this.values.length);
+        return this.values[randomIndex];
       },
-    },
-  }));
+    };
+  });
+
+  Alpine.data("copier", () => {
+    return {
+      init() {
+        Alpine.bind(this.$root, this.root);
+      },
+      root: {
+        ["@click"]() {
+          const id = this.$root.dataset.id;
+          const text = this.$root.dataset.text;
+          const hostname = window.location.hostname;
+
+          this.$store.message = `Copied ${text} link!`;
+          navigator.clipboard.writeText(`${hostname}/#${id}`);
+        },
+      },
+    };
+  });
+
+  Alpine.data("toast", () => {
+    return {
+      init() {
+        Alpine.bind(this.$root, this.root);
+        this.$watch("$store.message", () => {
+          if (!this.$store.message) return;
+          this.$root.classList.remove("animate-reveal");
+          void this.$root.offsetWidth;
+          this.$root.classList.add("animate-reveal");
+        });
+      },
+      root: {
+        ["x-show"]() {
+          return !!this.$store.message;
+        },
+        ["x-text"]() {
+          return this.$store.message ?? "";
+        },
+      },
+    };
+  });
 }
