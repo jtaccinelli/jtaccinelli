@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "nav",
+    "items": [
+      {
+        "label": "About",
+        "blurb": "Learn a little more about who I am.",
+        "url": "#about"
+      },
+      {
+        "label": "Projects",
+        "blurb": "See how I spend my free time.",
+        "url": "#projects"
+      },
+      {
+        "label": "Notable Roles",
+        "blurb": "Discover where I've worked.",
+        "url": "#roles"
+      },
+      {
+        "label": "FAQs",
+        "blurb": "Questions I like to pretend I get often.",
+        "url": "#faqs"
+      },
+      {
+        "label": "Contact",
+        "blurb": "Get in touch with me.",
+        "url": "#contact"
+      }
+    ]
+  },
+  {
+    "slug": "connect",
+    "items": [
+      {
+        "label": "Send an Email",
+        "url": "mailto:info@jtaccinelli.com.au",
+        "icon": "email"
+      }
+    ]
+  },
+  {
+    "slug": "find",
+    "items": [
+      {
+        "label": "LinkedIn",
+        "url": "https://au.linkedin.com/in/jtaccinelli",
+        "icon": "linkedin"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://au.linkedin.com/in/jtaccinelli",
+        "icon": "github"
+      }
+    ]
+  }
+]

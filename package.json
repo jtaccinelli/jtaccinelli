@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "jtaccinelli",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,7 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.2"
+    "@astrojs/alpinejs": "^0.4.8",
+    "@astrojs/cloudflare": "^12.5.4",
+    "@tailwindcss/vite": "^4.1.8",
+    "@types/alpinejs": "^3.13.11",
+    "alpinejs": "^3.14.9",
+    "astro": "^5.9.2",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^4.1.8"
   },
-  "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
+  "packageManager": "pnpm@10.11.1",
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "prettier": {
+    "printWidth": 120
+  }
 }

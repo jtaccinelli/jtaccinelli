@@ -1,0 +1,38 @@
+---
+import Footer from "~/components/footer.astro";
+import Menu from "~/components/menu.astro";
+import Toast from "~/components/toast.astro";
+
+import "~/styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const icon =
+  "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>";
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={icon} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="flex h-screen w-screen flex-col items-center justify-center bg-neutral-800 text-white md:p-12">
+    <div class="relative h-full w-full max-w-3xl overflow-y-scroll scroll-smooth rounded bg-neutral-900">
+      <main class="flex flex-col">
+        <slot />
+      </main>
+      <Toast />
+      <Menu />
+      <Footer />
+    </div>
+  </body>
+</html>

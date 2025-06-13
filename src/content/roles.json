@@ -1,0 +1,33 @@
+[
+  {
+    "slug": "bonsey-jaden",
+    "title": "UI/UX Designer & Developer",
+    "employer": "Bonsey Jaden",
+    "summary": "Headed up the executional details for Bonsey Jaden Australia as part of a small team.",
+    "start": "2019",
+    "end": "2021"
+  },
+  {
+    "slug": "culture-kings",
+    "title": "Senior Frontend Developer",
+    "employer": "Culture Kings",
+    "summary": "Overseeing the creation and implementation of the design for their new Shopify Hydrogen site.",
+    "start": "2022",
+    "end": "2024"
+  },
+  {
+    "slug": "dotcollective",
+    "title": "Technical Lead",
+    "employer": "DotCollective",
+    "summary": "Managed a small squad of developers, overseeing the creation of multiple Shopify Themes",
+    "start": "2024"
+  },
+  {
+    "slug": "three-by-one",
+    "title": "UI/UX Designer & Developer",
+    "employer": "Three By One",
+    "summary": "Handled the maintenance and new feature development for Abrand, Neuw and Rollas.",
+    "start": "2021",
+    "end": "2022"
+  }
+]

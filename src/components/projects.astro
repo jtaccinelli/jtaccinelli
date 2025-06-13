@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<div class="flex max-w-lg flex-col gap-8 p-8">
+  {
+    projects.map((project) => (
+      <a
+        class="relative flex flex-col gap-2 after:absolute after:-inset-2 after:rounded-sm after:bg-transparent after:transition-all target:after:bg-white/5 hover:after:-inset-4 hover:after:bg-white/5"
+        href={project.data.url}
+        target="_blank"
+      >
+        <p class="flex items-center gap-2 font-semibold">
+          <span>{project.data.title}</span>
+          <Icon name="link-external" class="h-4 w-4 text-white" />
+        </p>
+        <p class="text-neutral-400">{project.data.blurb}</p>
+        <div class="flex flex-wrap items-center gap-2 whitespace-nowrap py-2">
+          {project.data.tools.map((tool) => (
+            <p class="whitespace-nowrap rounded bg-neutral-800 px-2 py-1">{tool}</p>
+          ))}
+        </div>
+      </a>
+    ))
+  }
+</div>

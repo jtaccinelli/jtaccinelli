@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+const roles = await getCollection("roles");
+---
+
+<div class="flex max-w-lg flex-col gap-8 p-8 items-start">
+  {
+    roles
+      .sort((a, b) => Number(b.data.start) - Number(a.data.start))
+      .map((role) => (
+        <div class="flex flex-col gap-2">
+          <p class="font-semibold">
+            <span>{role.data.title}</span>
+            {!role.data.end ? <span class="whitespace-nowrap rounded bg-neutral-800 px-2 py-1">Current</span> : null}
+          </p>
+          <p class="flex items-center gap-2">
+            <span>{role.data.start}</span>
+            {role.data?.end ? (
+              <>
+                <span>-</span>
+                <span>{role.data.end}</span>
+              </>
+            ) : null}
+            <span class="text-neutral-400">@ {role.data.employer}</span>
+          </p>
+          <p class="text-white">{role.data.summary}</p>
+          <div class="flex items-center gap-2 whitespace-nowrap py-2" />
+        </div>
+      ))
+  }
+  <a
+    class="rounded bg-emerald-700 px-4 py-3 font-medium text-white transition-all hover:bg-emerald-700"
+    href="/resume.pdf"
+    target="_blank">See my full resume</a
+  >
+</div>

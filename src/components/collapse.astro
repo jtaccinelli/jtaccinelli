@@ -1,0 +1,28 @@
+---
+type Props = {
+  label: string;
+};
+
+const { label } = Astro.props;
+
+const id = Math.floor(Math.random() * 10000).toString();
+const name = `collapse-${id}`;
+---
+
+<div class="flex max-w-lg flex-col overflow-hidden rounded">
+  <input type="checkbox" id={name} name={name} class="peer/collapse hidden" />
+  <label
+    for={name}
+    class:list={[
+      "flex justify-between p-4 bg-neutral-800 border-b-2 border-transparent transition-all font-medium items-center",
+      "hover:cursor-pointer",
+      "peer-checked/collapse:border-neutral-900",
+      "after:text-xl after:content-['+'] peer-checked/collapse:after:content-['-']",
+    ]}
+  >
+    <span>{label}</span>
+  </label>
+  <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked/collapse:max-h-96">
+    <div class="flex flex-col gap-4 bg-neutral-800 px-4 py-8"><slot /></div>
+  </div>
+</div>

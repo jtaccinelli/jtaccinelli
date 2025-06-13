@@ -1,0 +1,33 @@
+---
+import Collapse from "./collapse.astro";
+---
+
+<div class="flex flex-col gap-2 p-8">
+  <Collapse label="Are you open to new or freelance work?">
+    <p><em>TL;DR: Yes, sometimes</em></p>
+    <p>
+      I'm always open to hearing about any interesting work, but at the moment my full time role is my priority. I do
+      take on the occasional one-off project, but usually these are:
+    </p>
+    <ol class="flex list-inside list-decimal flex-col gap-1">
+      <li>Started by me to spend my free time on.</li>
+      <li>Part of a meaningful social or community initiative.</li>
+      <li>Pay me appropriately for working outside of my standard hours.</li>
+    </ol>
+    <p>
+      If you have something you think you might want to work together on, don't hestiate to <a
+        href="#contact"
+        class="underline underline-offset-2">get in touch</a
+      >.
+    </p>
+  </Collapse>
+  <Collapse label="Why have you got random greetings at the start?">
+    <p>
+      I am Māori and Italian, and like honoring that where I can. Where I come from, and who came before me, are
+      important parts of who I am to me.
+    </p>
+  </Collapse>
+  <Collapse label="Why don't you have any pictures on your portfolio?">
+    <p>I'm lazy, and I don't like generative AI images.</p>
+  </Collapse>
+</div>

@@ -1,0 +1,22 @@
+---
+type Props = {
+  id?: string;
+  class?: string;
+  label?: string;
+  data?: string;
+};
+
+const { class: className, id, label, data } = Astro.props;
+---
+
+<button
+  {id}
+  x-data={data}
+  class:list={[
+    "pointer-events-auto -m-4 flex items-center justify-center rounded-full bg-transparent p-4 transition-all hover:bg-neutral-800",
+    className,
+  ]}
+  aria-label={label}
+>
+  <slot />
+</button>

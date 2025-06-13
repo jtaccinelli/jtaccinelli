@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "beth-freeman",
+    "title": "Beth Freeman",
+    "blurb": "A micro portfolio for a copywriter",
+    "type": "Mini Project",
+    "url": "https://bfreeman.me",
+    "tools": ["Astro", "Tailwind CSS"]
+  },
+  {
+    "slug": "portfolio",
+    "title": "My Portfolio",
+    "blurb": "What your eyes are currently gracing.",
+    "type": "Mini Project",
+    "url": "https://jtaccinelli.com.au",
+    "tools": ["Astro", "Tailwind CSS"]
+  },
+  {
+    "slug": "safer-streets",
+    "title": "Safer Streets",
+    "blurb": "Done with the Gabba Council, a community run project to advocate for vehicle and pedestrian safety.",
+    "type": "Community Initiative",
+    "url": "https://saferstreets.info",
+    "tools": ["React", "Remix", "MapLibre", "Supabase", "Tailwind CSS"]
+  },
+  {
+    "slug": "steep",
+    "title": "Steep Port Douglas",
+    "blurb": "A small website for a bubble tea business in FNQ.",
+    "type": "Business Site",
+    "url": "https://steepportdouglas.com.au",
+    "tools": ["Next.js", "Tailwind CSS", "Sanity", "Resend"]
+  },
+  {
+    "slug": "yarra-trail",
+    "title": "Yarra Trail",
+    "blurb": "Completed at my time @ DotCollective, an ecommerce site run on Shopify.",
+    "type": "Professional Work",
+    "url": "https://yarratrail.com.au",
+    "tools": ["Shopify", "Preact", "Searchspring", "Tailwind CSS"]
+  }
+]

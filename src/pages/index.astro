@@ -1,16 +1,69 @@
 ---
+import Layout from "~/layouts/index.astro";
 
+import Hero from "~/components/hero.astro";
+import Content from "~/components/content.astro";
+import Header from "~/components/header.astro";
+import Contact from "~/components/contact.astro";
+import Spacer from "~/components/spacer.astro";
+import Faqs from "~/components/faqs.astro";
+import Projects from "~/components/projects.astro";
+import Roles from "~/components/roles.astro";
+
+import "~/styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Jordan Accinelli | Website Enthusiast"
+  description="I like making stuff people like to use. If it's something on the internet, I can probably make it. Probably."
+>
+  <Hero heading="I'm Jordan!" blurb="I like making things people like using" emoji="🤖" />
+  <Header id="projects" text="Projects" />
+  <Projects />
+  <Header id="roles" text="Notable Roles" />
+  <Roles />
+  <Header id="about" text="About" />
+  <Content>
+    <p>
+      I'm a generalist by design - I've worked on digital projects from conception to delivery, and have at least
+      dabbled in every stage of the process. It means I'm uniquely positioned jump in wherever required to deliver
+      value, or to help take your digital idea and make it a reality.
+    </p>
+  </Content>
+  <Content heading="All of my projects are passion projects.">
+    <p>
+      I love working on projects that are doing something new, something meaningful, or something interesting. Projects
+      that meet those criteria get my cogs turning, and I do my best work when I'm engaged.
+    </p>
+    <p>
+      I highly value projects that give back to the community, and projects that help support local business and
+      meaningful causes. I don't take on work I don't feel meets those criteria.
+    </p>
+  </Content>
+  <Content heading="Outside of my work, I'm a foodie and trivia fiend.">
+    <p>
+      I am currently on a weekly quest to dethrone our local trivia regulars. After searching far and wide, I can highly
+      recommend <a href="https://www.isolationtrivia.com/" target="_blank" class="underline underline-offset-4"
+        >Isolation Trivia</a
+      > for a good night out with questions that don't feel like they were ripped out of the 60's.
+    </p>
+    <p>
+      I also love a good meal - cheap or fancy, local or extravagant - so long as it tastes good, I'm 100% there. Fun
+      fact; I once did the Riess Motivation Profile and my main motivator in life was 'Food'.
+    </p>
+    <p>Unrelated, but I have been known to take food as compensation. Just so you know.</p>
+  </Content>
+  <Spacer />
+  <Header id="faqs" text="FAQs" />
+  <Content>
+    <p>I get approached every now and then (mostly then) about certain questions people have about my work</p>
+    <p>I find a Q & A format is a more effective way to give people the information they're looking for.</p>
+  </Content>
+  <Faqs />
+  <Spacer />
+  <Header id="contact" text="Contact" />
+  <Contact
+    heading="Let's get to know each other."
+    blurb="If you like what you've seen here, you can leave your details in the form below, and I'll get back to you as soon as I can."
+  />
+</Layout>

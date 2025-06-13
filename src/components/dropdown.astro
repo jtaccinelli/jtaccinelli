@@ -1,0 +1,24 @@
+---
+type Props = {
+  align?: "left" | "right";
+  justify?: "top" | "bottom";
+};
+
+const { align = "left", justify = "bottom" } = Astro.props;
+---
+
+<div class="group/dropdown relative">
+  <slot name="trigger" />
+  <div
+    class:list={[
+      "absolute transition-all opacity-0 pointer-events-none translate-y-4",
+      align === "left" && "left-0",
+      align === "right" && "right-0",
+      justify === "top" && "top-full pt-2",
+      justify === "bottom" && "bottom-full pb-2",
+      "group-focus-within/dropdown:pointer-events-auto group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:translate-y-0",
+    ]}
+  >
+    <slot name="menu" />
+  </div>
+</div>

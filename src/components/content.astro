@@ -1,0 +1,12 @@
+---
+type Props = {
+  heading?: string;
+};
+
+const { heading } = Astro.props;
+---
+
+<div class="flex max-w-xl flex-col items-start gap-4 px-8 py-10">
+  {heading ? <h3 class="pb-4 text-xl font-semibold text-white">{heading}</h3> : null}
+  <slot />
+</div>

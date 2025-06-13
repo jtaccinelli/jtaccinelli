@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "PT Root UI";
+  src:
+    url("/fonts/pt-root-ui.woff2") format("woff2"),
+    url("/fonts/pt-root-ui.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@keyframes reveal {
+  0%,
+  100% {
+    opacity: 0%;
+  }
+  10%,
+  90% {
+    opacity: 100%;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@theme {
+  --font-sans: "PT Root UI", system-ui, sans-serif;
+
+  --animate-reveal: reveal 3s ease forwards;
+  --animate-spin-slow: spin-slow 10s linear infinte;
+}
