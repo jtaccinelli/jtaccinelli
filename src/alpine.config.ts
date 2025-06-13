@@ -15,6 +15,7 @@ export default function (Alpine: Alpine) {
     };
   });
 
+  // Data model for copying a section link
   Alpine.data("copier", () => {
     return {
       init() {
@@ -33,6 +34,7 @@ export default function (Alpine: Alpine) {
     };
   });
 
+  // Data model for rendering toast messages
   Alpine.data("toast", () => {
     return {
       init() {

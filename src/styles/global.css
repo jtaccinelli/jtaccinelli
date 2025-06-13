@@ -9,11 +9,31 @@
   font-style: normal;
 }
 
+:root {
+  font-size: 14px;
+}
+
 @theme {
   --font-sans: "PT Root UI", system-ui, sans-serif;
 
   --animate-reveal: reveal 3s ease forwards;
   --animate-spin-slow: spin 12s linear infinite;
+  --animate-fade-in: fade-in 2s ease forwards;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    20% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 100;
+      transform: translateY(0);
+    }
+  }
 
   @keyframes reveal {
     0% {
@@ -29,4 +49,8 @@
       opacity: 0;
     }
   }
+}
+
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }

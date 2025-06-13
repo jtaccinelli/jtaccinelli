@@ -10,8 +10,11 @@ type Props = {
 const { id, text } = Astro.props;
 ---
 
-<a href={`#${id}`} class="sticky top-0 z-10 flex justify-between border-b-2 border-neutral-800 bg-neutral-900 p-8">
-  <h3 id={id} class="font-bold">{text}</h3>
+<a
+  href={`#${id}`}
+  class="sticky top-0 z-10 flex justify-between border-b-1 border-neutral-800 bg-neutral-900 px-8 py-6"
+>
+  <h3 id={id} class="font-bold text-lg">{text}</h3>
   <IconButton label={`Copy ${text} Link`} x-data="copier" data-id={id} data-text={text}>
     <Icon name="link-alt" class="h-6 w-6 text-white" />
   </IconButton>
