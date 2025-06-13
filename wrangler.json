@@ -4,5 +4,11 @@
   "compatibility_date": "2025-03-25",
   "assets": {
     "directory": "./dist"
-  }
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "contact@email.jtaccinelli.com.au"
+    }
+  ]
 }
