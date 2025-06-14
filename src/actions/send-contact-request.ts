@@ -31,6 +31,8 @@ export const sendContactRequest = defineAction({
     const message = new EmailMessage(sender, recipient, email.asRaw());
     await EMAIL.send(message);
 
-    return new Response("Tester");
+    return {
+      success: true,
+    };
   },
 });
