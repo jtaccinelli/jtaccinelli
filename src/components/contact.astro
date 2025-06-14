@@ -10,6 +10,7 @@ type Props = {
 
 const { heading, blurb } = Astro.props;
 
+const result = Astro.getActionResult(actions.sendContactRequest);
 const entry = await getEntry("links", "connect");
 ---
 
@@ -22,8 +23,9 @@ const entry = await getEntry("links", "connect");
     id="contact-form"
     method="post"
     action={actions.sendContactRequest}
-    class="group flex w-full flex-col items-start gap-4 border-b-2 border-neutral-800 pb-8"
+    class="group flex w-full flex-col items-start gap-4 border-b border-neutral-800 pb-8"
   >
+    {result?.error ? <p>{result.error}</p> : null}
     <div class="flex w-full flex-col gap-2">
       <label for="name" class="font-medium">Name</label>
       <input type="text" name="name" id="name" required class="rounded bg-neutral-950 p-2" />
