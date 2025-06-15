@@ -1,8 +1,57 @@
 import type { Alpine } from "alpinejs";
 
+declare module "alpinejs" {
+  interface MessageStore {
+    init: () => void;
+    value: string;
+    handleHashChange: () => void;
+  }
+
+  interface Stores {
+    message: MessageStore;
+  }
+}
+
 export default function (Alpine: Alpine) {
   // Store for powering the toast
-  Alpine.store("message", "");
+  Alpine.store("message", {
+    value: "",
+    handleHashChange() {
+      const hash = window.location.hash;
+      const hostname = window.location.hostname;
+
+      navigator.clipboard.writeText(`${hostname}/${hash}`);
+      this.value = `Copied ${hash} link!`;
+    },
+    init() {
+      window.addEventListener("hashchange", this.handleHashChange.bind(this));
+    },
+  });
+
+  // Data model for toggleable state
+  Alpine.data("toggler", () => {
+    return {
+      isTrue: false,
+      true() {
+        this.isTrue = true;
+      },
+      false() {
+        this.isTrue = false;
+      },
+      toggle() {
+        if (this.isTrue) this.false();
+        else this.true();
+      },
+      init() {
+        Alpine.bind(this.$root, this.root);
+      },
+      root: {
+        [":data-ui"]() {
+          return this.isTrue ? "true" : "false";
+        },
+      },
+    };
+  });
 
   // Data model for randomly generating a greeting
   Alpine.data("greeting", () => {
@@ -10,26 +59,7 @@ export default function (Alpine: Alpine) {
       values: ["Ciao!", "Hello!", "Kia Ora!"],
       get value() {
         const randomIndex = Math.floor(Math.random() * this.values.length);
-        return this.values[randomIndex];
-      },
-    };
-  });
-
-  // Data model for copying a section link
-  Alpine.data("copier", () => {
-    return {
-      init() {
-        Alpine.bind(this.$root, this.root);
-      },
-      root: {
-        ["@click"]() {
-          const id = this.$root.dataset.id;
-          const text = this.$root.dataset.text;
-          const hostname = window.location.hostname;
-
-          this.$store.message = `Copied ${text} link!`;
-          navigator.clipboard.writeText(`${hostname}/#${id}`);
-        },
+        return this.values[randomIndex] + " 👋";
       },
     };
   });
@@ -39,7 +69,7 @@ export default function (Alpine: Alpine) {
     return {
       init() {
         Alpine.bind(this.$root, this.root);
-        this.$watch("$store.message", () => {
+        this.$watch("$store.message.value", () => {
           if (!this.$store.message) return;
           this.$root.classList.remove("animate-reveal");
           void this.$root.offsetWidth;
@@ -48,10 +78,10 @@ export default function (Alpine: Alpine) {
       },
       root: {
         ["x-show"]() {
-          return !!this.$store.message;
+          return !!this.$store.message.value;
         },
         ["x-text"]() {
-          return this.$store.message ?? "";
+          return this.$store.message.value ?? "";
         },
       },
     };

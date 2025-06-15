@@ -1,40 +1,39 @@
 ---
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 import Pill from "~/components/pill.astro";
 
 const roles = await getCollection("roles");
 ---
 
-<div class="flex flex-col gap-4 p-8 items-start">
+<div class="flex flex-col gap-8 p-8 md:gap-4">
   {
     roles
       .sort((a, b) => Number(b.data.start) - Number(a.data.start))
       .map((role) => (
-        <div class="flex flex-col gap-1">
-          <p class="flex gap-2 items-center">
-            <span class="font-semibold">{role.data.title}</span>
+        <a
+          href={role.data.link}
+          target="_blank"
+          class="group relative flex min-h-10 items-start justify-between gap-1 transition-all hover:pr-6 max-md:flex-col md:items-center"
+        >
+          <div class="pointer-events-none absolute inset-0 rounded-sm transition-all group-hover:-inset-x-3 group-hover:-inset-y-2 group-hover:bg-white/5" />
+          <p class="flex grow items-center gap-2 text-lg">
+            <span>{role.data.title}</span>
             {!role.data?.end ? <Pill>Current</Pill> : null}
           </p>
-          <p class="text-neutral-500">
-            <span>{role.data.start}</span>
+          <div class="flex gap-2">
             {role.data?.end ? (
-              <>
-                <span>-</span>
-                <span>{role.data.end}</span>
-              </>
-            ) : null}
-            <span>@ {role.data.employer}</span>
-          </p>
-          <p class="flex items-center gap-2" />
-          <p class="max-w-lg text-neutral-300">{role.data.summary}</p>
-          <div class="flex items-center gap-2 whitespace-nowrap py-2" />
-        </div>
+              <p class="text-neutral-400">
+                {role.data.start} - {role.data.end}
+              </p>
+            ) : (
+              <p class="text-neutral-400">{role.data.start}</p>
+            )}
+            <p class="text-neutral-400 md:text-white">@ {role.data.employer}</p>
+          </div>
+          <Icon name="link-external" class="absolute right-0 size-5 opacity-0 transition-all group-hover:opacity-100" />
+        </a>
       ))
   }
-  <a
-    class="rounded bg-emerald-700 px-4 py-3 font-medium text-white transition-all hover:bg-emerald-700"
-    href="/resume.pdf"
-    target="_blank">See my full resume</a
-  >
 </div>

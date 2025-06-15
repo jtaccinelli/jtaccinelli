@@ -1,6 +1,4 @@
 ---
-export const prerender = false;
-
 import Layout from "~/layouts/index.astro";
 
 import Hero from "~/components/hero.astro";
@@ -18,11 +16,11 @@ import "~/styles/global.css";
   title="Jordan Accinelli | Website Enthusiast"
   description="I like making stuff people like to use. If it's something on the internet, I can probably make it. Probably."
 >
-  <Hero heading="I'm Jordan!" blurb="I like making things people like using" emoji="🤖" />
-  <Header id="projects" text="Projects" />
-  <Projects />
+  <Hero heading="I like making things people like using" />
   <Header id="roles" text="Notable Roles" />
   <Roles />
+  <Header id="projects" text="Projects" />
+  <Projects />
   <Header id="about" text="About" />
   <Content heading="All of my projects are passion projects.">
     <p>

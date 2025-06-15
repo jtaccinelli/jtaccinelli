@@ -18,11 +18,6 @@
         "url": "#roles"
       },
       {
-        "label": "FAQs",
-        "blurb": "Questions I like to pretend I get often.",
-        "url": "#faqs"
-      },
-      {
         "label": "Contact",
         "blurb": "Get in touch with me.",
         "url": "#contact"
@@ -36,6 +31,11 @@
         "label": "Send an Email",
         "url": "mailto:info@jtaccinelli.com.au",
         "icon": "email"
+      },
+      {
+        "label": "Message me on LinkedIn",
+        "url": "https://au.linkedin.com/in/jtaccinelli",
+        "icon": "linkedin"
       }
     ]
   },
@@ -49,7 +49,7 @@
       },
       {
         "label": "GitHub",
-        "url": "https://au.linkedin.com/in/jtaccinelli",
+        "url": "https://github.com/jtaccinelli",
         "icon": "github"
       }
     ]

@@ -1,6 +1,7 @@
 ---
 import Footer from "~/components/footer.astro";
 import Menu from "~/components/menu.astro";
+import StickyBar from "~/components/sticky-bar.astro";
 import Toast from "~/components/toast.astro";
 
 import "~/styles/global.css";
@@ -16,7 +17,7 @@ const icon =
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href={icon} />
@@ -25,15 +26,13 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="flex h-screen w-screen flex-col items-center justify-center bg-neutral-800 text-white p-4 md:p-12">
-    <div
-      class="relative h-full w-full max-w-3xl overflow-y-scroll scroll-smooth rounded-xl bg-neutral-900 animate-fade-in scrollbar-hidden"
-    >
+  <body class="flex h-screen flex-col items-center justify-center bg-neutral-900 text-white">
+    <div class="relative h-full w-full rounded-lg bg-neutral-900 md:max-w-prose">
       <main class="flex flex-col">
         <slot />
       </main>
       <Toast />
-      <Menu />
+      <StickyBar />
       <Footer />
     </div>
   </body>

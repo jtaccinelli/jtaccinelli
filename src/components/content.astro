@@ -6,7 +6,9 @@ type Props = {
 const { heading } = Astro.props;
 ---
 
-<div class="flex max-w-xl flex-col items-start gap-4 px-8 py-10">
-  {heading ? <h3 class="pb-4 text-xl font-semibold text-white">{heading}</h3> : null}
-  <slot />
+<div class="flex flex-col items-start gap-4 p-8">
+  {heading ? <h3 class="font-medium text-white">{heading}</h3> : null}
+  <div class="flex flex-col gap-4 text-neutral-400">
+    <slot />
+  </div>
 </div>

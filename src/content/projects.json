@@ -37,7 +37,7 @@
     "blurb": "A micro portfolio for a copywriter (my partner, if you must know).",
     "type": "Mini Project",
     "url": "https://bfreeman.me",
-    "tools": ["Astro", "Tailwind CSS"]
+    "tools": ["Astro", "Tailwind CSS", "Alpine.js"]
   },
   {
     "slug": "portfolio",

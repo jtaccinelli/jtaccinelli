@@ -4,18 +4,20 @@ type Props = {
   class?: string;
   label?: string;
   data?: string;
+  href?: string;
 };
 
-const { class: className, label, ...props } = Astro.props;
+const { class: className, label, href, ...props } = Astro.props;
 ---
 
-<button
+<a
+  href={href}
   class:list={[
-    "pointer-events-auto -m-4 flex items-center justify-center rounded-full bg-transparent p-4 transition-all hover:bg-neutral-800 hover:cursor-pointer",
+    "pointer-events-auto flex size-10 items-center justify-center rounded-full bg-transparent transition-all hover:cursor-pointer hover:bg-neutral-800",
     className,
   ]}
   aria-label={label}
   {...props}
 >
   <slot />
-</button>
+</a>

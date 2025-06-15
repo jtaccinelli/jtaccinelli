@@ -1,21 +1,12 @@
 ---
-import Badge from "~/components/badge.astro";
-
-type Props = {
-  heading: string;
-  blurb: string;
-  emoji: string;
-};
-
-const { heading, blurb } = Astro.props;
+import Greeting from "./greeting.astro";
 ---
 
-<div class="flex flex-col items-start gap-4 px-8 py-12">
-  <div class="flex w-full flex-col md:flex-row md:items-center">
-    <Badge class="bottom-28 right-18 h-72 w-72 text-emerald-600 md:bottom-0" />
-    <div class="flex flex-col gap-1">
-      <h1 class="text-3xl font-bold">{heading}</h1>
-      <p class="text-xl text-neutral-400">{blurb}</p>
-    </div>
-  </div>
+<div class="flex flex-col items-start gap-4 px-8 py-24">
+  <Greeting class="relative -translate-x-4 -rotate-6 rounded-full bg-orange-700 px-4 py-2 text-2xl font-medium" />
+  <h1 class="max-w-sm text-3xl font-medium">
+    <span>I'm Jordan!</span><br />
+    <span>I like making things</span><br />
+    <span>people like using</span>
+  </h1>
 </div>

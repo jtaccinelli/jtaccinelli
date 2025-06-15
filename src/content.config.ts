@@ -24,7 +24,7 @@ const roles = defineCollection({
   schema: z.object({
     title: z.string(),
     employer: z.string(),
-    summary: z.string(),
+    link: z.string(),
     start: z.string(),
     end: z.string().optional(),
   }),

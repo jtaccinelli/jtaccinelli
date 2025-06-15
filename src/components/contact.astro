@@ -1,61 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getEntry } from "astro:content";
-import { actions } from "astro:actions";
 
-type Props = {
-  heading: string;
-  blurb: string;
-};
-
-const { heading, blurb } = Astro.props;
-
-const result = Astro.getActionResult(actions.sendContactRequest);
 const entry = await getEntry("links", "connect");
 ---
 
-<div class="group flex max-w-xl flex-col items-start gap-8 px-8 py-12">
-  <div class="flex flex-col gap-6">
-    <h3 class="text-xl font-semibold">{heading}</h3>
-    <p>{blurb}</p>
-  </div>
-  <form
-    id="contact-form"
-    method="post"
-    action={actions.sendContactRequest}
-    class="group flex w-full flex-col items-start gap-4 border-b border-neutral-800 pb-8"
-  >
-    {result?.error ? <p>{result.error}</p> : null}
-    <div class="flex w-full flex-col gap-2">
-      <label for="name" class="font-medium">Name</label>
-      <input type="text" name="name" id="name" required class="rounded bg-neutral-950 p-2" />
-    </div>
-    <div class="flex w-full flex-col gap-2">
-      <label for="email" class="font-medium">Email</label>
-      <input type="email" name="email" id="email" required class="rounded bg-neutral-950 p-2" />
-    </div>
-    <div class="flex w-full flex-col gap-2">
-      <label for="message" class="font-medium">Message</label>
-      <textarea name="message" id="message" rows="4" required class="rounded bg-neutral-950 p-2"></textarea>
-    </div>
-    <button
-      type="submit"
-      class="mt-4 rounded bg-emerald-700 px-4 py-3 font-medium text-white transition-all hover:bg-emerald-700"
-    >
-      Get in touch
-    </button>
-  </form>
-  <div class="flex w-full flex-col gap-6">
-    <p class="mt-4">Otherwise, you can contact me through the following methods.</p>
-    <div class="flex w-full flex-col gap-2">
-      {
-        entry?.data.items.map((link) => (
-          <a href={link.url} class="flex items-center justify-between gap-4 rounded bg-neutral-800 p-4">
-            <span class="font-medium">{link.label}</span>
-            <Icon name={link.icon} class="h-5 w-5 text-white" />
-          </a>
-        ))
-      }
-    </div>
+<div class="group flex flex-col items-start gap-8 px-8 py-12">
+  <p>You can reach out to me using any of the methods below!</p>
+  <div class="flex w-full flex-col gap-2">
+    {
+      entry?.data.items.map((link) => (
+        <a
+          href={link.url}
+          class="flex items-center justify-between gap-4 rounded bg-neutral-800 p-4 hover:bg-white hover:text-neutral-900"
+        >
+          <span class="font-medium">{link.label}</span>
+          <Icon name={link.icon} class="size-5" />
+        </a>
+      ))
+    }
   </div>
 </div>
