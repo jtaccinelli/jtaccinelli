@@ -1,9 +1,6 @@
 {
   "name": "jtaccinelli",
-  "main": "./dist/_worker.js/index.js",
   "compatibility_date": "2025-03-25",
-  "compatibility_flags": ["nodejs_compat"],
-
   "assets": {
     "directory": "./dist"
   },

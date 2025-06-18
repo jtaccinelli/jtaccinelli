@@ -9,7 +9,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
@@ -23,8 +22,5 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
-    ssr: {
-      external: ["cloudflare:email", "mimetext"],
-    },
   },
 });
