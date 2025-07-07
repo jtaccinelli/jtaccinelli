@@ -12,7 +12,7 @@
     "title": "Virtual Record Exchange",
     "blurb": "A side project for a shared weekly playlist I run with my friends. Whitelist only, sorry.",
     "type": "Professional Work",
-    "url": "https://vre.pages.dev",
+    "url": "https://virtualrecordexchange.com",
     "tools": ["Cloudflare", "Remix", "D1", "Spotify"]
   },
   {
